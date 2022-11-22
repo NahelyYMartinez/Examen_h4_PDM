@@ -25,46 +25,51 @@ class SmartDeviceBox extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           color: powerOn
-              ? Color.fromARGB(198, 86, 205, 218)
-              : Color.fromARGB(176, 215, 78, 239),
+              ? Color.fromARGB(255, 253, 167, 240)
+              : Color.fromARGB(221, 140, 243, 244),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 30.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // icon
-
-              // smart device name + switch
               Row(
                 children: [
+                  const SizedBox(
+                    width: 15,
+                  ),
                   Image.asset(
                     iconPath,
-                    height: 60,
-                    width: 60,
-                    color: powerOn ? Colors.white : Colors.grey.shade700,
+                    height: 70,
+                    width: 80,
                   ),
-                  Builder(builder: (context) {
-                    return Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 25.0),
-                        child: Text(
-                          smartDeviceName,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
-                            color: powerOn ? Colors.white : Colors.black,
-                          ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: Text(
+                        smartDeviceName,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: powerOn
+                              ? Color.fromARGB(255, 3, 2, 2)
+                              : Colors.black,
                         ),
                       ),
-                    );
-                  }),
+                    ),
+                  ),
                   Transform.rotate(
                     angle: pi / 1,
                     child: CupertinoSwitch(
                       value: powerOn,
                       onChanged: onChanged,
                     ),
+                  ),
+                  const SizedBox(
+                    width: 15,
                   ),
                 ],
               )

@@ -10,13 +10,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final double horizontalPadding = 40;
-  final double verticalPadding = 25;
+  final double verticalPadding = 15;
 
   //lista
   List mySmartDevices = [
-    ["Luz", "lib/icons/light-bulb.png", true],
-    ["Aire", "lib/icons/air-conditioner.png", false],
-    ["Fan", "lib/icons/fan.png", false],
+    ["Living Room *7 devices", "lib/icons/living_rooms.png", true],
+    ["Bead Room *5 devices", "lib/icons/Bad.png", false],
+    ["Bath Room  *4 devices", "lib/icons/tina.png", false],
   ];
 
   void powerSwitchChanged(bool value, int index) {
@@ -73,29 +73,92 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Text(
                     'Well come to your Home',
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 18),
                   ),
                 ],
               ),
             ),
             const SizedBox(
-              height: 5,
+              height: 20,
+              width: 60,
             ),
             Padding(
-              padding: const EdgeInsets.all(25.0),
+              padding: EdgeInsets.symmetric(
+                horizontal: horizontalPadding,
+                vertical: verticalPadding,
+              ),
               child: Container(
-                height: 200.0,
-                width: 700.0,
-                child: Image.asset(
-                  'lib/icons/climas.png',
-                ),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                height: 150.0,
+                width: 350.0,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 43, 164, 225),
+                  borderRadius: const BorderRadius.all(Radius.circular(32)),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey[850]!.withOpacity(0.29),
+                        offset: const Offset(-10, 10),
+                        blurRadius: 10,
+                        spreadRadius: 10)
+                  ],
+                  image: const DecorationImage(
+                      image: AssetImage('lib/icons/climas.png')),
                 ),
               ),
             ),
             const SizedBox(
-              width: 50,
+              height: 10,
+            ),
+            Container(
+              padding: EdgeInsets.all(10.0),
+              child: Row(
+                children: <Widget>[
+                  const SizedBox(
+                    width: 40,
+                  ),
+                  Container(
+                    child: Text(
+                      "Your Rooms",
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 100,
+                  ),
+                  Container(
+                    height: 40.0,
+                    width: 80.0,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 112, 204, 249),
+                      borderRadius: const BorderRadius.all(Radius.circular(32)),
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          child: const Icon(
+                            Icons.add,
+                            color: Color.fromARGB(255, 12, 101, 217),
+                          ),
+                        ),
+                        Container(
+                          child: Text(
+                            "add",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 23, 117, 194)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
             Expanded(
               child: ListView.builder(
